@@ -1,0 +1,49 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Kids Fund Autotests">
+
+    <test name="AdminTests">
+        <classes>
+            <class name="com.kidsFund.autotests.AdminTests.ChildrenListTest"/>
+            <class name="com.kidsFund.autotests.AdminTests.DonationsList"/>
+            <class name="com.kidsFund.autotests.AdminTests.EducationListTest"/>
+            <class name="com.kidsFund.autotests.AdminTests.EventsListTest"/>
+            <class name="com.kidsFund.autotests.AdminTests.HelpListTest"/>
+            <class name="com.kidsFund.autotests.AdminTests.UsersListTest"/>
+            <class name="com.kidsFund.autotests.AdminTests.WishListTest"/>
+            <!--<class name="com.kidsFund.autotests.AdminTests.WithdrawalsListTest"/>-->
+        </classes>
+    </test>
+
+    <test name="UsersTests">
+        <classes>
+            <class name="com.kidsFund.autotests.UsersTests.LoginViaEmailTest"/>
+            <class name="com.kidsFund.autotests.UsersTests.LoginViaMobileTest"/>
+            <class name="com.kidsFund.autotests.UsersTests.ChangePasswordTest"/>
+        </classes>
+    </test>
+
+    <test name="ChildTests">
+        <classes>
+            <class name="com.kidsFund.autotests.ChildTests.ChildTest"/>
+        </classes>
+    </test>
+
+    <test name="ContentTests">
+        <classes>
+            <class name="com.kidsFund.autotests.ContentTests.ChildWishTest"/>
+            <class name="com.kidsFund.autotests.ContentTests.ChildSchoolTest"/>
+            <class name="com.kidsFund.autotests.ContentTests.ChatWithAnotherUserTest"/>
+            <class name="com.kidsFund.autotests.ContentTests.CreatePostOnUsersPageTest"/>
+            <class name="com.kidsFund.autotests.ContentTests.GetHelpTest"/>
+        </classes>
+    </test>
+
+    <test name="FriendTests">
+        <classes>
+            <class name="com.kidsFund.autotests.FriendTests.AddFriendViaEmailTest"/>
+            <class name="com.kidsFund.autotests.FriendTests.AddFriendFromMemberTest"/>
+        </classes>
+    </test>
+
+</suite>

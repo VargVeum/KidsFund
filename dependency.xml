@@ -1,0 +1,169 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.s_pro.tso</groupId>
+    <artifactId>selenium-tests</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>TSP Selenium Tests</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <!--<browser.mode>headless</browser.mode>-->
+        <browser.mode>visible</browser.mode>
+
+        <maven-surefire-plugin.version>2.12.4</maven-surefire-plugin.version>
+        <selenium_java.version>3.5.3</selenium_java.version>
+        <maven-compiler-plugin.version>1.8</maven-compiler-plugin.version>
+        <selenide.version>4.7</selenide.version>
+        <slf4j-simple.version>1.7.25</slf4j-simple.version>
+        <jfairy.version>0.3.0</jfairy.version>
+
+        <testng.version>6.11</testng.version>
+        <reportng.version>1.1.4</reportng.version>
+        <velocity.version>1.7</velocity.version>
+        <guice.version>3.0</guice.version>
+        <rest-assured.version>2.9.0</rest-assured.version>
+        <gson.version>2.8.2</gson.version>
+
+        <timestamp>${maven.build.timestamp}</timestamp>
+        <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <reportsDirectory>./test-output/${timestamp}</reportsDirectory>
+                    <properties>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
+                        <property>
+                            <name>listener</name>
+                            <value>org.uncommons.reportng.HTMLReporter,com.s_pro.tso.logging.TestListener</value>
+                        </property>
+                    </properties>
+                    <systemPropertyVariables>
+                        <base.url>${base.url}</base.url>
+                        <admin.url>${admin.url}</admin.url>
+                        <browser.type>${browser.mode}</browser.type>
+                        <reportsDirectory>./test-output/${timestamp}</reportsDirectory>
+                    </systemPropertyVariables>
+                    <suiteXmlFiles>testng.xml</suiteXmlFiles>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven-compiler-plugin.version}</source>
+                    <target>${maven-compiler-plugin.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>pre-prod</id>
+            <properties>
+                <base.url>https://pre.tsodelivery.com/</base.url>
+                <admin.url>https://preadmin.tsodelivery.com/</admin.url>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <base.url>https://tsodev.scenario-projects.com/</base.url>
+                <admin.url>https://tsodev-admin.scenario-projects.com/</admin.url>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium_java.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.codeborne/selenide -->
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j-simple.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.jfairy/jfairy -->
+        <dependency>
+            <groupId>org.jfairy</groupId>
+            <artifactId>jfairy</artifactId>
+            <version>${jfairy.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.uncommons</groupId>
+            <artifactId>reportng</artifactId>
+            <version>${reportng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>${velocity.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>${guice.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jayway.restassured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+
+    </dependencies>
+</project>
