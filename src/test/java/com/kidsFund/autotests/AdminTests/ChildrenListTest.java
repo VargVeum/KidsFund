@@ -23,13 +23,14 @@ public class ChildrenListTest extends BaseTest {
     private final String clickGenderDropdown = "div[role='button']";
     private final String birthdayDateField = "#date_of_birth";
     private final String registrationNameField = "#created_at";
+    private final String sortingButton = "span[role='button']";
 
     @Test
     public void adminLogin() {
         loginAdminPanel();
         openChildrenPage();
-        $(pageName).shouldBe(Condition.visible);
-        $$(filterDropdown).get(1).click();
+        verifyPageName();
+        clickFilterDropdown();
         searchByFirstName();
         searchByLastName();
         searchByNickname();
@@ -42,13 +43,21 @@ public class ChildrenListTest extends BaseTest {
 
     }
 
+    private void clickFilterDropdown() {
+        $$(filterDropdown).get(1).click();
+    }
+
+    private void verifyPageName() {
+        $(pageName).shouldBe(Condition.visible);
+    }
+
     private void checkingFilters() {
-        $$("span[role='button']").get(0).click();
-        $$("span[role='button']").get(1).click();
-        $$("span[role='button']").get(2).click();
-        $$("span[role='button']").get(3).click();
-        $$("span[role='button']").get(4).click();
-        $$("span[role='button']").get(5).click();
+        $$(sortingButton).get(0).click();
+        $$(sortingButton).get(1).click();
+        $$(sortingButton).get(2).click();
+        $$(sortingButton).get(3).click();
+        $$(sortingButton).get(4).click();
+        $$(sortingButton).get(5).click();
     }
 
     private void searchByRegistrationDate() {

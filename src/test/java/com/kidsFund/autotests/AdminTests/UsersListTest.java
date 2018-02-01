@@ -30,7 +30,6 @@ public class UsersListTest extends BaseTest {
     private final String selectStatusDropdown = ".c476";
     private final By chooseInactiveStatus = By.xpath("//*[text()='INACTIVE']");
     private final String selectVerifiedDropdown = "form div[role='button']";
-    //private final By chooseNo = By.xpath("//*[text()='NO']");
     private final String chooseNo = "ul[role='listbox'] li";
     private final String tableRows = "tbody tr";
     private final String rowsPerPageDropdown = "tfoot div[role='button']";
