@@ -13,6 +13,7 @@ public class BaseTest {
     private final String adminURL = "http://kf-admin.scenario-projects.com/login";
     private final String baseURL = "http://kf-front.scenario-projects.com/";
     private String login ="imartynenko@s-pro.io";
+    private String friendLogin ="imartynenko+3@s-pro.io";
     private String password ="Qwerty123$";
     private String changedPassword ="Qwerty123#";
     private String phoneNumber = "666274975";
@@ -21,6 +22,10 @@ public class BaseTest {
 
     public String getLogin() {
         return login;
+    }
+
+    public String getFriendLogin() {
+        return friendLogin;
     }
 
     public String getChangedPassword() {
@@ -54,6 +59,14 @@ public class BaseTest {
         open(baseURL);
         $(alreadyHaveAccountButton).click();
         $("#loginEmail").setValue(getLogin());
+        $("#loginPassword").waitUntil(Condition.visible, 5000).setValue(getPassword());
+        $(loginButton).click();
+    }
+
+    protected void loginViaFriend() {
+        open(baseURL);
+        $(alreadyHaveAccountButton).click();
+        $("#loginEmail").setValue("imartynenko+3@s-pro.io");
         $("#loginPassword").waitUntil(Condition.visible, 5000).setValue(getPassword());
         $(loginButton).click();
     }

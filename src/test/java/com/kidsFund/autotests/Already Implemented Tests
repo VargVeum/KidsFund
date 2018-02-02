@@ -1,6 +1,6 @@
-*** Already implemented ***
+*** Already implemented tests ***
 
-- Admin:
+// Admin:
 
 Children
 Donation
@@ -11,13 +11,13 @@ Users
 Wish
 Withdrawal
 
-- Child:
+// Child:
 
 Child
 AddSecondParentFromMember
 AddSecondParentFromNewPerson
 
-- Content:
+// Content:
 
 Chat
 ChildEvent
@@ -26,12 +26,13 @@ ChildWish
 CreatePost
 GetHelp
 
-- Friend:
+// Friend:
 
 Add friend
 Add friend
+Unfriend
 
-- Users:
+// Users:
 
 ChangePassword
 LoginViaEmail
