@@ -26,6 +26,8 @@
     <test name="ChildTests">
         <classes>
             <class name="com.kidsFund.autotests.ChildTests.ChildTest"/>
+            <class name="com.kidsFund.autotests.ChildTests.AddSecondParentFromNewPerson"/>
+            <class name="com.kidsFund.autotests.ChildTests.AddSecondParentFromMemberTest"/>
         </classes>
     </test>
 
