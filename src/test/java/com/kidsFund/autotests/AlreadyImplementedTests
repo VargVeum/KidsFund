@@ -1,0 +1,38 @@
+*** Already implemented ***
+
+- Admin:
+
+Children
+Donation
+Education
+Event
+Help
+Users
+Wish
+Withdrawal
+
+- Child:
+
+Child
+AddSecondParentFromMember
+AddSecondParentFromNewPerson
+
+- Content:
+
+Chat
+ChildEvent
+ChildSchool
+ChildWish
+CreatePost
+GetHelp
+
+- Friend:
+
+Add friend
+Add friend
+
+- Users:
+
+ChangePassword
+LoginViaEmail
+LoginViaMobile
