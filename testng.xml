@@ -45,6 +45,7 @@
         <classes>
             <class name="com.kidsFund.autotests.FriendTests.AddFriendViaEmailTest"/>
             <class name="com.kidsFund.autotests.FriendTests.AddFriendFromMemberTest"/>
+            <class name="com.kidsFund.autotests.FriendTests.DenyFriendshipRequestTest"/>
             <class name="com.kidsFund.autotests.FriendTests.UnfriendTest"/>
         </classes>
     </test>

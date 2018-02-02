@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class GetHelpTest extends BaseTest {
 
     private final String openURL = "http://kf-front.scenario-projects.com/";
-    private final By openHelpPage = By.xpath("//*[text()='If You need any help please go to this page']");
+    private final By openHelpPage = By.xpath("//a[text()='If You need any help please go to this page']");
     private final String emailField = "#email";
     private final String subjectField = "#subject";
     private final String helpMessageField = "#enquiry";

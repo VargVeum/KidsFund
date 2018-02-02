@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.close;
 
-public class UnfriendTest extends BaseTest{
+public class DenyFriendshipRequestTest extends BaseTest{
 
     private final By yourFriendsButton = By.xpath("//*[text()='Your Friends']");
     private final By addFriendButton = By.xpath("//*[text()='Add Friend']");
@@ -20,6 +20,7 @@ public class UnfriendTest extends BaseTest{
     private final String logoutButton = ".sc-gPEVay.ekxTKK";
     private final By cancelButton = By.xpath("//button[text()='Cancel']");
     private final String chooseFriend = "button.sc-cIwbeI.bPMpJa";
+    private final By denyFriendshipRequest = By.xpath("//*[text()='Deny']");
 
 
     @Test
@@ -39,20 +40,20 @@ public class UnfriendTest extends BaseTest{
         checkNumberOfFriends();
         openPendingRequests();
         choosePendingRequestsReceived();
-        acceptFriendshipRequest();
+        clickDenyFriendshipRequestButton();
+        verifyWhatRequestWasSuccessfulDeny();
         logoutFromAccount();
 
         close();
 
-        loginViaEmail();
-        goToYourFriendsPage();
-        chooseFriend();
-        verifyUnfriendAction();
-        confirmUnfriendAction();
-        verifySuccessfulunfriend();
+    }
 
-        close();
+    private void clickDenyFriendshipRequestButton() {
+        $(denyFriendshipRequest).click();
+    }
 
+    private void verifyWhatRequestWasSuccessfulDeny() {
+        $(byText("There are no received requests yet")).shouldBe(Condition.visible);
     }
 
     private void verifySuccessfulunfriend() {
@@ -120,6 +121,5 @@ public class UnfriendTest extends BaseTest{
     private void goToYourFriendsPage() {
         $(yourFriendsButton).click();
     }
-
 
 }

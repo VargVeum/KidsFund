@@ -22,13 +22,13 @@ public class ChatWithAnotherUserTest extends BaseTest {
         goToChats();
         startChatWithFriend();
         sendMessageToChat();
-        verifySuccesfulSendMessage();
+        verifySuccessfulSendMessage();
 
         close();
 
     }
 
-    private void verifySuccesfulSendMessage() {
+    private void verifySuccessfulSendMessage() {
         $(byText("Test chat via Selenide")).shouldBe(Condition.visible);
     }
 

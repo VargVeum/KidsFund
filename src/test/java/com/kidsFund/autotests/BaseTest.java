@@ -57,7 +57,7 @@ public class BaseTest {
 
     protected void loginViaEmail() {
         open(baseURL);
-        $(alreadyHaveAccountButton).click();
+        $(alreadyHaveAccountButton).waitUntil(Condition.visible, 5000).click();
         $("#loginEmail").setValue(getLogin());
         $("#loginPassword").waitUntil(Condition.visible, 5000).setValue(getPassword());
         $(loginButton).click();
@@ -65,7 +65,7 @@ public class BaseTest {
 
     protected void loginViaFriend() {
         open(baseURL);
-        $(alreadyHaveAccountButton).click();
+        $(alreadyHaveAccountButton).waitUntil(Condition.visible, 5000).click();
         $("#loginEmail").setValue("imartynenko+3@s-pro.io");
         $("#loginPassword").waitUntil(Condition.visible, 5000).setValue(getPassword());
         $(loginButton).click();
