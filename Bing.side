@@ -1,0 +1,56 @@
+{
+  "id": "c03b5e23-8736-46be-b452-cca62ba9b3eb",
+  "name": "Bing",
+  "url": "https://www.bing.com",
+  "tests": [{
+    "id": "14e22604-bbdc-40fd-8f2f-904b794a7a49",
+    "name": "CheckTextErrorText",
+    "commands": [{
+      "id": "ed1fefd4-8e3c-4cd0-885d-9be2f0ba3011",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "value": ""
+    }, {
+      "id": "962a823c-814e-4d14-813a-409816e0ef31",
+      "comment": "",
+      "command": "clickAt",
+      "target": "css=div.shader_right",
+      "value": "575,69"
+    }, {
+      "id": "5101ce1f-d8fc-4706-99cb-c32acbd056ca",
+      "comment": "",
+      "command": "clickAt",
+      "target": "id=id_s",
+      "value": "20,12"
+    }, {
+      "id": "c58c09b3-ca23-4059-b6a2-e9abeece4bfa",
+      "comment": "",
+      "command": "clickAt",
+      "target": "id=LandingAction",
+      "value": "67,19"
+    }, {
+      "id": "a7c268eb-770c-4a4f-a655-e8c60598b779",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=pEmailErrorArea",
+      "value": "Эти сведения обязательны."
+    }]
+  }],
+  "suites": [{
+    "id": "513eda55-3892-4d60-af8b-836d7baf534d",
+    "name": "Default Suite",
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }, {
+    "id": "86f6532e-3f79-4961-b4d2-03446ffddced",
+    "name": "Suite #1",
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["14e22604-bbdc-40fd-8f2f-904b794a7a49"]
+  }],
+  "urls": ["https://www.bing.com/"],
+  "plugins": [],
+  "version": "1.0"
+}
